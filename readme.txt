@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 1.6
+                           Version 1.9
                             
            Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich
 
@@ -26,8 +26,9 @@ The output file will be create if it not exist.
 Exit codes
 
 0 - Operation sucessfully complete.
-1 - File operation error.
-2 - You not give a command line arguments.
+1 - Can't open input file.
+2 - Can't create output file.
+3 - Invalid command line arguments.
 
 Source code
 
@@ -41,6 +42,6 @@ You can send me a letter to tuzik87@inbox.ru
 Changelog
 
 0.1 - initial version.
-0.2 - 1.0 - Small changes in source code.
-1.1 - Totally program rewritten.
-1.2 - 1.6 - Small changes in source code.
+0.2 - 1.0 - Small changes.
+1.1 - Program was totally rewritten.
+1.2 - 1.9 - Small changes.
