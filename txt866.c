@@ -9,6 +9,9 @@ FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 void show_progress(const long int start,const long int stop);
 long int get_file_size(FILE *file);
+unsigned char read_byte(FILE *target);
+void write_byte(FILE *target,const unsigned char data);
+unsigned char convert_code(const unsigned char target);
 void work(const char *source,const char *target);
 
 int main(int argc, char *argv[])
@@ -16,7 +19,9 @@ int main(int argc, char *argv[])
  show_intro();
  if (argc==3)
  {
+  show_start_message();
   work(argv[1],argv[2]);
+  show_end_message();
  }
  else
  {
@@ -30,8 +35,8 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 1.9");
- puts("Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich,2010-2018 years");
+ puts("Version 2.0");
+ puts("Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich,2010-2019 years");
  puts("Distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
@@ -96,31 +101,50 @@ long int get_file_size(FILE *file)
  return length;
 }
 
+unsigned char read_byte(FILE *target)
+{
+ unsigned char data;
+ data=0;
+ fread(&data,sizeof(unsigned char),1,target);
+ return data;
+}
+
+void write_byte(FILE *target,const unsigned char data)
+{
+ fwrite(&data,sizeof(unsigned char),1,target);
+}
+
+unsigned char convert_code(const unsigned char target)
+{
+ unsigned char result;
+ result=target;
+ if ((result>=192)&&(result<=239))
+ {
+  result-=64;
+ }
+ if (result>=240)
+ {
+  result-=16;
+ }
+ return result;
+}
+
 void work(const char *source,const char *target)
 {
+ unsigned char original,converted;
  long int index,length;
- unsigned char data;
  FILE *input;
  FILE *output;
  input=open_input_file(source);
  output=create_output_file(target);
  length=get_file_size(input);
- show_start_message();
  for(index=0;index<length;++index)
  {
-  fread(&data,1,1,input);
-  if((data>=192)&&(data<=239))
-  {
-   data-=64;
-  }
-  if(data>=240)
-  {
-   data-=16;
-  }
+  original=read_byte(input);
+  converted=convert_code(original);
+  write_byte(output,converted);
   show_progress(index,length);
-  fwrite(&data,1,1,output);
  }
  fclose(input);
  fclose(output);
- show_end_message();
 }
