@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0
+                           Version 2.0.1
                             
            Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich
 
@@ -26,14 +26,14 @@ Exit codes
 
 Source code
 
-Dos version of this program was compiled under Open Watcom.
-Windows version of this program was compiled under MINGW-w64.
-Source code can be compiled for wide range operation systems, but you need create makefile or build script by yourself.
+Dos version of this program compiled under Open Watcom.
+Windows version of this program compiled under MINGW-w64.
+Source code can be compiled for wide range operation systems, but you need create to makefile or build script by yourself.
 I provide only three things: compiled binary files for Windows and Dos, makefile for Linux.
 
 Install and uninstall under Linux
 
-Follow this steps:
+Follow these steps:
 
 1.Extract content of source code archive.
 2.Open terminal and go to source code directory.
@@ -49,5 +49,6 @@ Changelog
 
 0.1 - initial version.
 0.2 - 1.0 - Small changes.
-1.1 - Program was totally rewritten.
+1.1 - Program was totally rewritte.
 1.2 - 2.0 - Small changes.
+2.0.1 - Makefile updated.

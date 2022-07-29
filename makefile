@@ -1,8 +1,7 @@
 ﻿install:
 	@echo Installation in progress. Please wait
-	@gcc txt866.c -g0 -O0 -o txt866
-	@chmod ugo+rx txt866
-	@cp -f -p txt866 /bin/
+	@gcc txt866.c -g0 -O0 -o /bin/txt866
+	@chmod ugo+rx /bin/txt866
 	@echo Installation was successfuly complete
 uninstall:
 	@rm -f /bin/txt866
