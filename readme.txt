@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0.1.1
+                           Version 2.0.1.2
                             
            Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich
 
@@ -52,3 +52,4 @@ Changelog
 1.2 - 2.0 - Small changes.
 2.0.1 - Makefile updated.
 2.0.1.1 - Windows version of TXT866 recompiled under Open Watcom.
+2.0.1.2 - Makefile updated.
