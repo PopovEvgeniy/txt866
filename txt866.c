@@ -35,8 +35,8 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.0");
- puts("Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich,2010-2019 years");
+ puts("Version 2.0.2");
+ puts("Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich,2010-2022 years");
  puts("Distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
@@ -131,7 +131,7 @@ unsigned char convert_code(const unsigned char target)
 
 void work(const char *source,const char *target)
 {
- unsigned char original,converted;
+ unsigned char converted;
  long int index,length;
  FILE *input;
  FILE *output;
@@ -140,8 +140,7 @@ void work(const char *source,const char *target)
  length=get_file_size(input);
  for(index=0;index<length;++index)
  {
-  original=read_byte(input);
-  converted=convert_code(original);
+  converted=convert_code(read_byte(input));
   write_byte(output,converted);
   show_progress(index,length);
  }
