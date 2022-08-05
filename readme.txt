@@ -1,12 +1,12 @@
                              TXT866
                            
-                           Version 2.0.2
+                           Version 2.0.2.1
                             
-           Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich
+           Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich
 
 Description
 
-This program let you convert text files content from Win-1251 to Dos-866 codepage.
+This program let you convert text files content from Win-1251 to Dos-866 code-page.
 
 License
 
@@ -27,7 +27,7 @@ Exit codes
 Source code
 
 This program compiled under Open Watcom.
-Source code can be compiled for wide range operating systems, but you need to create to makefile or build script by yourself.
+Source code can be compiled for wide range operating systems, but you need to create makefile or build script by yourself.
 I provide only three things: compiled binary files for Windows and Dos, makefile for Linux.
 
 Install and uninstall under Linux
@@ -54,3 +54,4 @@ Changelog
 2.0.1.1 - Windows version of TXT866 recompiled under Open Watcom.
 2.0.1.2 - Makefile updated.
 2.0.2 - Small changes.
+2.0.2.1 - Documentation updated.
