@@ -7,11 +7,7 @@ void show_start_message();
 void show_end_message();
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
-void show_progress(const long int start,const long int stop);
-long int get_file_size(FILE *file);
-unsigned char read_byte(FILE *target);
-void write_byte(FILE *target,const unsigned char data);
-unsigned char convert_code(const unsigned char target);
+int convert_code(const int target);
 void work(const char *source,const char *target);
 
 int main(int argc, char *argv[])
@@ -35,8 +31,8 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.0.2");
- puts("Win-1251 to Dos-866 codepage convertor for text files by Popov Evgeniy Alekseyevich,2010-2022 years");
+ puts("Version 2.0.3");
+ puts("Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich,2010-2022 years");
  puts("Distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
@@ -60,7 +56,7 @@ void show_end_message()
 FILE *open_input_file(const char *name)
 {
  FILE *file;
- file=fopen(name,"rb");
+ file=fopen(name,"rt");
  if (file==NULL)
  {
   putchar('\n');
@@ -73,7 +69,7 @@ FILE *open_input_file(const char *name)
 FILE *create_output_file(const char *name)
 {
  FILE *file;
- file=fopen(name,"wb");
+ file=fopen(name,"wt");
  if (file==NULL)
  {
   putchar('\n');
@@ -83,40 +79,9 @@ FILE *create_output_file(const char *name)
  return file;
 }
 
-void show_progress(const long int start,const long int stop)
+int convert_code(const int target)
 {
- long int progress;
- progress=(start+1)*100;
- progress/=stop;
- putchar('\r');
- printf("Processing %ld byte from %ld.Progress:%ld%%",start+1,stop,progress);
-}
-
-long int get_file_size(FILE *file)
-{
- long int length;
- fseek(file,0,SEEK_END);
- length=ftell(file);
- rewind(file);
- return length;
-}
-
-unsigned char read_byte(FILE *target)
-{
- unsigned char data;
- data=0;
- fread(&data,sizeof(unsigned char),1,target);
- return data;
-}
-
-void write_byte(FILE *target,const unsigned char data)
-{
- fwrite(&data,sizeof(unsigned char),1,target);
-}
-
-unsigned char convert_code(const unsigned char target)
-{
- unsigned char result;
+ int result;
  result=target;
  if ((result>=192)&&(result<=239))
  {
@@ -131,18 +96,15 @@ unsigned char convert_code(const unsigned char target)
 
 void work(const char *source,const char *target)
 {
- unsigned char converted;
- long int index,length;
  FILE *input;
  FILE *output;
+ int original;
  input=open_input_file(source);
  output=create_output_file(target);
- length=get_file_size(input);
- for(index=0;index<length;++index)
+ while (!feof(input))
  {
-  converted=convert_code(read_byte(input));
-  write_byte(output,converted);
-  show_progress(index,length);
+  original=fgetc(input);
+  fputc(convert_code(original),output);
  }
  fclose(input);
  fclose(output);
