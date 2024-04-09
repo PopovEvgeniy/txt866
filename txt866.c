@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "txt866.h"
 
 void show_intro();
 FILE *open_input_file(const char *name);
@@ -28,8 +27,8 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.0.5");
- puts("Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich,2010-2022 years");
+ puts("Version 2.0.6");
+ puts("Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich,2010-2024 years");
  puts("Distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }

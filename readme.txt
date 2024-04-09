@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0.5
+                           Version 2.0.6
                             
            Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich
 
@@ -56,3 +56,4 @@ Changelog
 2.0.2 - Small changes.
 2.0.2.1 - Documentation updated.
 2.0.3 - 2.0.5 - Small changes.
+2.0.6 - Visual C++ support improved.
