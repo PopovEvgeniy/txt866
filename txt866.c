@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
  {
   puts("Working.Please wait...");
   work(argv[1],argv[2]);
-  puts("Work finish");
+  puts("The work has been finished");
  }
  else
  {
-  puts("You must give a input file name and output file name as command line arguments");
+  puts("You must give an input file name and an output file name as the command-line arguments");
   exit(3);
  }
  return 0;
@@ -27,9 +27,9 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.0.6");
- puts("Win-1251 to Dos-866 code-page convertor for text files by Popov Evgeniy Alekseyevich,2010-2024 years");
- puts("Distributed under GNU GENERAL PUBLIC LICENSE");
+ puts("Version 2.0.7");
+ puts("Win-1251 to Dos-866 code-page converter for text files by Popov Evgeniy Alekseyevich,2010-2024 years");
+ puts("This software is distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
 
@@ -39,7 +39,7 @@ FILE *open_input_file(const char *name)
  file=fopen(name,"rt");
  if (file==NULL)
  {
-  puts("Can't open input file");
+  puts("Can't open the input file");
   exit(1);
  }
  return file;
@@ -51,7 +51,7 @@ FILE *create_output_file(const char *name)
  file=fopen(name,"wt");
  if (file==NULL)
  {
-  puts("Can't create output file");
+  puts("Can't create the output file");
   exit(2);
  }
  return file;
