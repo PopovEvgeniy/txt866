@@ -1,12 +1,12 @@
                              TXT866
                            
-                           Version 2.0.7.1
+                           Version 2.0.7.2
                             
-           Win-1251 to Dos-866 code-page converter for text files by Popov Evgeniy Alekseyevich
+           Win-1251 to Dos-866 code page converter for text files by Popov Evgeniy Alekseyevich
 
 Description
 
-This program lets you convert text file content from the Win-1251 to the Dos-866 code-page.
+This program lets you convert text file content from the Win-1251 to the Dos-866 code page.
 
 License
 
@@ -51,13 +51,13 @@ Changelog
 0.2-1.0: The small changes.
 1.1: The program was totally rewritten.
 1.2-2.0: The small changes.
-2.0.1: The makefile updated.
+2.0.1: The makefile has been updated.
 2.0.1.1: The Windows version of TXT866 was recompiled under Open Watcom.
-2.0.1.2: The makefile updated.
+2.0.1.2: The makefile has been updated.
 2.0.2: The small changes.
-2.0.2.1: Documentation updated.
+2.0.2.1: The documentation has been updated.
 2.0.3-2.0.5: The small changes.
-2.0.6: Visual C++ support improved.
-2.0.6.1-2.0.6.2: Documentation updated.
+2.0.6: Visual C++ support has improved.
+2.0.6.1-2.0.6.2: The documentation has been updated.
 2.0.7: The small changes.
-2.0.7.1: Documentation updated.
+2.0.7.1-2.0.7.2: The documentation has been updated.
