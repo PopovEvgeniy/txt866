@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0.7.2
+                           Version 2.0.8
                             
            Win-1251 to Dos-866 code page converter for text files by Popov Evgeniy Alekseyevich
 
@@ -26,10 +26,10 @@ Exit codes
 
 Source code
 
-The code was compiled under Open Watcom.
+The code was compiled under Tiny C Compiler.
 You can compile it with any modern C compiler.
 The source code can compile for a wide range of operating systems, but you need to create a makefile or a build script by yourself.
-I provide the binary files (Dos and Windows) and the makefile for Linux.
+I provide the binary file for Windows and the makefile for Linux.
 
 Install and uninstall under Linux
 
@@ -61,3 +61,4 @@ Changelog
 2.0.6.1-2.0.6.2: The documentation has been updated.
 2.0.7: The small changes.
 2.0.7.1-2.0.7.2: The documentation has been updated.
+2.0.8: The source code was recompiled under Tiny C Compiler.
