@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0.8
+                           Version 2.0.8.1
                             
            Win-1251 to Dos-866 code page converter for text files by Popov Evgeniy Alekseyevich
 
@@ -62,3 +62,4 @@ Changelog
 2.0.7: The small changes.
 2.0.7.1-2.0.7.2: The documentation has been updated.
 2.0.8: The source code was recompiled under Tiny C Compiler.
+2.0.8.1: The makefile has been updated.
