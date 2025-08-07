@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.0.8.1
+                           Version 2.0.8.2
                             
            Win-1251 to Dos-866 code page converter for text files by Popov Evgeniy Alekseyevich
 
@@ -10,7 +10,7 @@ This program lets you convert text file content from the Win-1251 to the Dos-866
 
 License
 
-This program is distributed under GNU GENERAL PUBLIC LICENSE.
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 Command-line arguments
 
@@ -41,10 +41,6 @@ Follow these steps:
 Run as root to install: make install
 Run as root to uninstall: make uninstall
 
-Contact
-
-You can send me a letter at tuzik87@inbox.ru.
-
 Changelog
 
 0.1: Initial version.
@@ -63,3 +59,4 @@ Changelog
 2.0.7.1-2.0.7.2: The documentation has been updated.
 2.0.8: The source code was recompiled under Tiny C Compiler.
 2.0.8.1: The makefile has been updated.
+2.0.8.2: The documentation has been updated.
