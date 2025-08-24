@@ -27,9 +27,9 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.0.8");
- puts("Win-1251 to Dos-866 code page converter for text files by Popov Evgeniy Alekseyevich,2010-2024 years");
- puts("This software is distributed under GNU GENERAL PUBLIC LICENSE");
+ puts("Version 2.0.9");
+ puts("Windows-1251 to DOS-866 code page converter for text files by Popov Evgeniy Alekseyevich,2010-2025 years");
+ puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
 
