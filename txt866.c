@@ -29,7 +29,7 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.1.5");
+ puts("Version 2.1.6");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -113,9 +113,8 @@ void work(const char *source,const char *target)
  int original=0;
  input=open_input_file(source);
  output=create_output_file(target);
- while (!feof(input))
+ for (original=read_data(input);original!=EOF;original=read_data(input))
  {
-  original=read_data(input);
   write_data(convert_code(original),output);
  }
  fclose(input);
