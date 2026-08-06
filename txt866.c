@@ -29,7 +29,7 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.1.6");
+ puts("Version 2.1.7");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -95,11 +95,19 @@ int convert_code(const int target)
 {
  int result=0;
  result=target;
- if ((result>=192) && (result<=239))
+ if (target==168)
+ {
+  result=240;
+ }
+ if (target==184)
+ {
+  result=241;
+ }
+ if ((target>=192) && (target<=239))
  {
   result-=64;
  }
- if (result>=240)
+ if (target>=240)
  {
   result-=16;
  }
