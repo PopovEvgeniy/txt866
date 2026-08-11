@@ -1,6 +1,8 @@
 #include "txt866.h"
+#include "exitcode.h"
 
 void show_intro();
+void show_error(const char *message);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 int read_data(FILE *input);
@@ -14,7 +16,7 @@ int main(int argc, char *argv[])
  if (argc<3)
  {
   puts("You must give an input file name and an output file name as the command-line arguments");
-  exit(5);
+  exit(COMMAND_LINE_ARGUMENTS_ERROR);
  }
  else
  {
@@ -29,10 +31,17 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.1.7");
+ puts("Version 2.1.9");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
+}
+
+void show_error(const char *message)
+{
+ fputc('\n',stderr);
+ fputs(message,stderr);
+ fputc('\n',stderr);
 }
 
 FILE *open_input_file(const char *name)
@@ -40,14 +49,14 @@ FILE *open_input_file(const char *name)
  FILE *target=NULL;
  if (name==NULL)
  {
-  puts("Can't open the input file");
-  exit(1);
+  show_error("Can't open the input file");
+  exit(OPEN_FILE_ERROR);
  }
  target=fopen(name,"rt");
  if (target==NULL)
  {
-  puts("Can't open the input file");
-  exit(1);
+  show_error("Can't open the input file");
+  exit(OPEN_FILE_ERROR);
  }
  return target;
 }
@@ -57,14 +66,14 @@ FILE *create_output_file(const char *name)
  FILE *target=NULL;
  if (name==NULL)
  {
-  puts("Can't create the output file");
-  exit(2);
+  show_error("Can't create the output file");
+  exit(CREATE_FILE_ERROR);
  }
  target=fopen(name,"wt");
  if (target==NULL)
  {
-  puts("Can't create the output file");
-  exit(2);
+  show_error("Can't create the output file");
+  exit(CREATE_FILE_ERROR);
  }
  return target;
 }
@@ -75,8 +84,8 @@ int read_data(FILE *input)
  source=fgetc(input);
  if (ferror(input)!=0)
  {
-  puts("Can't read data!");
-  exit(3);
+  show_error("Can't read data!");
+  exit(READ_DATA_ERROR);
  }
  return source;
 }
@@ -85,8 +94,8 @@ void write_data(const int target,FILE *output)
 {
  if (fputc(target,output)==EOF)
  {
-  puts("Can't write data!");
-  exit(4);
+  show_error("Can't write data!");
+  exit(WRITE_DATA_ERROR);
  }
 
 }

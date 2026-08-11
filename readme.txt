@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.1.7
+                           Version 2.1.9
                             
            The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich
 
@@ -21,7 +21,7 @@ Exit codes.
 2: Can't create the output file.
 3: Can't read data!
 4: Can't write data!
-5: The invalid command-line arguments.
+5: The command-line arguments is invalid.
 
 The source code.
 
@@ -64,3 +64,4 @@ Version history.
 2.1-2.1.3: The small changes.
 2.1.4-2.1.5: The file processing has improved.
 2.1.6-2.1.7: The small bug has been fixed.
+2.1.8-2.1.9: The small changes.
