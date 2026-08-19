@@ -31,7 +31,7 @@ void show_intro()
 {
  putchar('\n');
  puts("TXT866");
- puts("Version 2.1.9");
+ puts("Version 2.2");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -47,12 +47,10 @@ void show_error(const char *message)
 FILE *open_input_file(const char *name)
 {
  FILE *target=NULL;
- if (name==NULL)
+ if (name!=NULL)
  {
-  show_error("Can't open the input file");
-  exit(OPEN_FILE_ERROR);
+  target=fopen(name,"rt");
  }
- target=fopen(name,"rt");
  if (target==NULL)
  {
   show_error("Can't open the input file");
@@ -64,12 +62,10 @@ FILE *open_input_file(const char *name)
 FILE *create_output_file(const char *name)
 {
  FILE *target=NULL;
- if (name==NULL)
+ if (name!=NULL)
  {
-  show_error("Can't create the output file");
-  exit(CREATE_FILE_ERROR);
+  target=fopen(name,"wt");
  }
- target=fopen(name,"wt");
  if (target==NULL)
  {
   show_error("Can't create the output file");
