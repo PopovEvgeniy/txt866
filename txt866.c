@@ -30,8 +30,7 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866");
- puts("Version 2.2");
+ puts("TXT866 2.2.1");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');

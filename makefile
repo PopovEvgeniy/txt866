@@ -4,5 +4,5 @@ install:
 	@chmod ugo+rx /bin/txt866
 	@echo Installation was successfully completed
 uninstall:
-	@rm -f /bin/txt866
+	@rm /bin/txt866
 	@echo Uninstallation was successfully completed
