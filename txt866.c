@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
  }
  else
  {
-  puts("Working.Please wait...");
+  puts("Working. Please wait...");
   work(argv[1],argv[2]);
   puts("The work has been finished");
  }
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866 2.2.1");
+ puts("TXT866 2.2.2");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -48,7 +48,7 @@ FILE *open_input_file(const char *name)
  FILE *target=NULL;
  if (name!=NULL)
  {
-  target=fopen(name,"rt");
+  target=fopen(name,"rb");
  }
  if (target==NULL)
  {
@@ -63,7 +63,7 @@ FILE *create_output_file(const char *name)
  FILE *target=NULL;
  if (name!=NULL)
  {
-  target=fopen(name,"wt");
+  target=fopen(name,"wb");
  }
  if (target==NULL)
  {
