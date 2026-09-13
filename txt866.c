@@ -18,11 +18,16 @@ int main(int argc, char *argv[])
   puts("You must give an input file name and an output file name as the command-line arguments");
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
  }
- else
+ if (argc==3)
  {
   puts("Working. Please wait...");
   work(argv[1],argv[2]);
   puts("The work has been finished");
+ }
+ if (argc>3)
+ {
+  puts("You gave too many command-line arguments");
+  exit(COMMAND_LINE_ARGUMENTS_ERROR);
  }
  return 0;
 }
@@ -30,9 +35,9 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866 2.2.2");
+ puts("TXT866 2.2.3");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
- puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE");
+ puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE (version 2 or later) terms");
  putchar('\n');
 }
 
