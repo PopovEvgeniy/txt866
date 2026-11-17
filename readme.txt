@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.2.6
+                           Version 2.2.7
                             
            The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich
 
@@ -17,12 +17,14 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE (version 2 or l
 Exit codes.
 
 0: The operation was successfully completed.
-1: Can't open the input file.
-2: Can't create the output file.
-3: Can't close the output file correctly.
-4: Can't read data!
-5: Can't write data!
-6: The command-line arguments are invalid.
+1: The input file name is empty.
+2: The output file name is empty.
+3: Can't open the input file.
+4: Can't create the output file.
+5: Can't close the output file correctly.
+6: Can't read data!
+7: Can't write data!
+8: The command-line arguments are invalid.
 
 The source code.
 
@@ -64,7 +66,7 @@ Version history.
 2.0.9.1: The documentation has been updated.
 2.1-2.1.3: The small changes.
 2.1.4-2.1.5: The file processing has been improved.
-2.1.6-2.1.7: The small bug has been fixed.
+2.1.6-2.1.7: A minor bug has been fixed.
 2.1.8-2.1.9: The small changes.
 2.2: The file processing has been improved.
 2.2.1: The small changes.
@@ -73,3 +75,4 @@ Version history.
 2.2.4.1: The documentation has been updated.
 2.2.5: The file processing has been improved.
 2.2.6: The small changes.
+2.2.7: The error handling has been improved.

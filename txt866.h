@@ -2,5 +2,7 @@
   #pragma warning(disable : 4996)
 #endif
 
+#include <stddef.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

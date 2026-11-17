@@ -4,6 +4,7 @@
 void show_intro();
 void show_message(const char *message);
 void show_error(const char *message);
+void check_name(const char *name,const char *message,const int code);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 void close_output_file(FILE *output);
@@ -26,6 +27,8 @@ int main(int argc, char *argv[])
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
   break;
   case 3:
+  check_name(argv[1],"The input file name is empty",EMPTY_SOURCE_NAME_ERROR);
+  check_name(argv[2],"The output file name is empty",EMPTY_TARGET_NAME_ERROR);
   show_message("Working. Please wait...");
   work(argv[1],argv[2]);
   puts("The work has been finished");
@@ -41,7 +44,7 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866 2.2.6");
+ puts("TXT866 2.2.7");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE (version 2 or later) terms");
 }
@@ -59,13 +62,25 @@ void show_error(const char *message)
  fputc('\n',stderr);
 }
 
+void check_name(const char *name,const char *message,const int code)
+{
+ size_t length=0;
+ if (name!=NULL)
+ {
+  length=strlen(name);
+ }
+ if (length==0)
+ {
+  show_error(message);
+  exit(code);
+ }
+
+}
+
 FILE *open_input_file(const char *name)
 {
  FILE *target=NULL;
- if (name!=NULL)
- {
-  target=fopen(name,"rb");
- }
+ target=fopen(name,"rb");
  if (target==NULL)
  {
   show_error("Can't open the input file");
@@ -77,10 +92,7 @@ FILE *open_input_file(const char *name)
 FILE *create_output_file(const char *name)
 {
  FILE *target=NULL;
- if (name!=NULL)
- {
-  target=fopen(name,"wb");
- }
+ target=fopen(name,"wb");
  if (target==NULL)
  {
   show_error("Can't create the output file");
