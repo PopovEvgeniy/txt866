@@ -2,9 +2,11 @@
 #include "exitcode.h"
 
 void show_intro();
+void show_message(const char *message);
 void show_error(const char *message);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
+void close_output_file(FILE *output);
 int read_data(FILE *input);
 void write_data(const int target,FILE *output);
 int convert_code(const int target);
@@ -16,20 +18,20 @@ int main(int argc, char *argv[])
  switch (argc)
  {
   case 1:
-  puts("You must give an input file name and an output file name as the command-line arguments");
+  show_message("You must give an input file name and an output file name as the command-line arguments");
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
   break;
   case 2:
-  puts("You don't get an output file name");
+  show_error("You don't get an output file name");
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
   break;
   case 3:
-  puts("Working. Please wait...");
+  show_message("Working. Please wait...");
   work(argv[1],argv[2]);
   puts("The work has been finished");
   break;
   default:
-  puts("You gave too many command-line arguments");
+  show_error("You gave too many command-line arguments");
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
   break;
  }
@@ -39,10 +41,15 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866 2.2.4");
+ puts("TXT866 2.2.6");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE (version 2 or later) terms");
+}
+
+void show_message(const char *message)
+{
  putchar('\n');
+ puts(message);
 }
 
 void show_error(const char *message)
@@ -80,6 +87,16 @@ FILE *create_output_file(const char *name)
   exit(CREATE_FILE_ERROR);
  }
  return target;
+}
+
+void close_output_file(FILE *output)
+{
+ if (fclose(output)!=0)
+ {
+  show_error("Can't close the output file correctly");
+  exit(CLOSE_FILE_ERROR);
+ }
+
 }
 
 int read_data(FILE *input)
@@ -138,6 +155,6 @@ void work(const char *source,const char *target)
  {
   write_data(convert_code(original),output);
  }
+ close_output_file(output);
  fclose(input);
- fclose(output);
 }
