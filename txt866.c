@@ -27,8 +27,6 @@ int main(int argc, char *argv[])
   exit(COMMAND_LINE_ARGUMENTS_ERROR);
   break;
   case 3:
-  check_name(argv[1],"The input file name is empty",EMPTY_SOURCE_NAME_ERROR);
-  check_name(argv[2],"The output file name is empty",EMPTY_TARGET_NAME_ERROR);
   show_message("Working. Please wait...");
   work(argv[1],argv[2]);
   puts("The work has been finished");
@@ -44,7 +42,7 @@ int main(int argc, char *argv[])
 void show_intro()
 {
  putchar('\n');
- puts("TXT866 2.2.7");
+ puts("TXT866 2.2.9");
  puts("The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich,2010-2026 years");
  puts("This software is distributed under the GNU GENERAL PUBLIC LICENSE (version 2 or later) terms");
 }
@@ -80,6 +78,7 @@ void check_name(const char *name,const char *message,const int code)
 FILE *open_input_file(const char *name)
 {
  FILE *target=NULL;
+ check_name(name,"The input file name is empty",EMPTY_SOURCE_NAME_ERROR);
  target=fopen(name,"rb");
  if (target==NULL)
  {
@@ -92,6 +91,7 @@ FILE *open_input_file(const char *name)
 FILE *create_output_file(const char *name)
 {
  FILE *target=NULL;
+ check_name(name,"The output file name is empty",EMPTY_TARGET_NAME_ERROR);
  target=fopen(name,"wb");
  if (target==NULL)
  {

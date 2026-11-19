@@ -1,6 +1,6 @@
                              TXT866
                            
-                           Version 2.2.7
+                           Version 2.2.9
                             
            The Windows-1251 to DOS-866 code page converter by Popov Evgeniy Alekseyevich
 
@@ -76,3 +76,4 @@ Version history.
 2.2.5: The file processing has been improved.
 2.2.6: The small changes.
 2.2.7: The error handling has been improved.
+2.2.8-2.2.9: The small changes.
